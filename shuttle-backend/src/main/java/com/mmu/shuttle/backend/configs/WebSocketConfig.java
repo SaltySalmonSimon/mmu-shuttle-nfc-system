@@ -37,7 +37,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         // channel prefix
-        config.enableSimpleBroker("/routes");
+        config.enableSimpleBroker("/routes", "/occupancy");
 
         // message broker prefix
         config.setApplicationDestinationPrefixes("/app");

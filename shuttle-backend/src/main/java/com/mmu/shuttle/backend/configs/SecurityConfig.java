@@ -61,6 +61,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/file/*").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/vehicles/all").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/live-update/active-buses").permitAll()
+                        .requestMatchers("/api/boarding/**").permitAll()
                         .requestMatchers("/ws-endpoint/**").permitAll()
 
                         .anyRequest().authenticated()
