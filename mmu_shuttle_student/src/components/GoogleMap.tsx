@@ -11,7 +11,7 @@ const GoogleMap = ({ routeLine, activeBuses, stations }: GoogleMapProps) => {
     const map = useMap(GOOGLE_MAPS_ID);
 
     useEffect(() => {
-        if (!map || !routeLine || routeLine.length === 0) return;
+        if (!map || !routeLine || routeLine.length === 0 || !window.google?.maps) return;
 
         const bounds = new window.google.maps.LatLngBounds();
 

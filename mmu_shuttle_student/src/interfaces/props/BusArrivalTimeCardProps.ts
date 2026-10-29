@@ -4,5 +4,7 @@ export interface BusArrivalTimeCardProps {
     arrivals?: {
         busPlate: string;
         time: string;
+        occupancy?: number;
+        capacity?: number;
     }[];
 }

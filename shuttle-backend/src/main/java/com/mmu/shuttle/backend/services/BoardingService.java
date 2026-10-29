@@ -1,9 +1,11 @@
 package com.mmu.shuttle.backend.services;
 
+import com.mmu.shuttle.backend.caches.ActiveBusStore;
 import com.mmu.shuttle.backend.entities.ShuttleBoardingLog;
 import com.mmu.shuttle.backend.entities.Station;
 import com.mmu.shuttle.backend.entities.StudentCard;
 import com.mmu.shuttle.backend.entities.Vehicle;
+import com.mmu.shuttle.backend.models.ActiveBusModel;
 import com.mmu.shuttle.backend.models.BoardingTapRequest;
 import com.mmu.shuttle.backend.models.BoardingTapResponse;
 import com.mmu.shuttle.backend.repositories.ShuttleBoardingLogRepository;
@@ -44,6 +46,9 @@ public class BoardingService {
 
     @Autowired
     private StationRepository stationRepository;
+
+    @Autowired(required = false)
+    private ActiveBusStore activeBusStore;
 
     @Autowired(required = false)
     private SimpMessagingTemplate messagingTemplate;
@@ -177,6 +182,21 @@ public class BoardingService {
     }
 
     private void broadcastOccupancy(Long vehicleId, int occupancy) {
+        if (activeBusStore != null) {
+            try {
+                for (ActiveBusModel bus : activeBusStore.getAllActiveBuses()) {
+                    if (vehicleId.equals(bus.getVehicleId())) {
+                        bus.setCurrentOccupancy(occupancy);
+                        if (messagingTemplate != null) {
+                            messagingTemplate.convertAndSend("/routes/active_buses/" + bus.getRouteId(), bus);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                log.warn("ActiveBusStore sync failed: {}", e.getMessage());
+            }
+        }
+
         if (messagingTemplate != null) {
             try {
                 messagingTemplate.convertAndSend("/occupancy/" + vehicleId, occupancy);
@@ -213,4 +233,3 @@ public class BoardingService {
         return R * c;
     }
 }
-

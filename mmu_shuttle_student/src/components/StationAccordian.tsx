@@ -137,7 +137,9 @@ const StationAccordian = ({ stations, activeBuses, isLoading, isError, errorMess
                                                         isLiveEta
                                                         arrivals={etaBuses.map((bus) => ({
                                                             busPlate: bus.busPlate,
-                                                            time: `${bus.etas[station.id]} min`
+                                                            time: `${bus.etas[station.id]} min`,
+                                                            occupancy: bus.currentOccupancy ?? 0,
+                                                            capacity: bus.maxCapacity ?? 40
                                                         }))}
                                                     />
                                                 )}

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMU FCI CPT6216 Industrial Training Presentation - Simon</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
+    body { font-family: 'Segoe UI', Calibri, -apple-system, sans-serif; background-color: #1a1a1a; }
+    .ppt-slide { display: none; width: 100%; height: 100%; background: #ffffff; position: relative; flex-direction: column; justify-content: space-between; overflow: hidden; }
+    .ppt-slide.active { display: flex; }
+    .slide-canvas { aspect-ratio: 16 / 9; max-height: 86vh; width: 100%; max-width: 1350px; box-shadow: 0 16px 50px rgba(0,0,0,0.6); }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between items-center text-slate-800 select-none overflow-hidden p-2 sm:p-3">
+
+  <!-- PowerPoint Quick Access Bar -->
+  <div class="w-full max-w-[1350px] flex items-center justify-between text-xs text-neutral-300 py-1.5 px-4 bg-neutral-900 rounded-t-lg border-b border-neutral-700">
+    <div class="flex items-center space-x-2">
+      <span class="w-3.5 h-3.5 bg-red-600 rounded-sm flex items-center justify-center font-bold text-[9px] text-white">P</span>
+      <span class="font-semibold text-white">MMU_CPT6216_Industrial_Training_Presentation.pptx</span>
+      <span class="text-neutral-500">•</span>
+      <span class="text-neutral-400">Strict MMU FCI Guideline Rubric</span>
+    </div>
+
+    <div class="flex items-center space-x-4">
+      <div class="flex items-center space-x-1.5 font-mono text-neutral-300 bg-neutral-800 px-2 py-0.5 rounded border border-neutral-700">
+        <span class="text-neutral-400">Timer:</span>
+        <span id="timerDisplay" class="font-bold text-white">00:00</span>
+        <button id="toggleTimerBtn" class="text-blue-400 hover:text-blue-300 ml-1">Start</button>
+        <button id="resetTimerBtn" class="text-neutral-500 hover:text-neutral-400">Reset</button>
+      </div>
+
+      <button id="notesToggleBtn" class="px-2.5 py-0.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-600 font-medium">
+        Notes (N)
+      </button>
+
+      <button onclick="toggleFullScreen()" class="px-2.5 py-0.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-600 font-medium">
+        Fullscreen (F11)
+      </button>
+    </div>
+  </div>
+
+  <!-- 16:9 Slide Canvas -->
+  <div class="slide-canvas bg-white relative flex flex-col overflow-hidden">
+
+    <!-- ========================================== -->
+    <!-- SLIDE 1: Title Slide                       -->
+    <!-- ========================================== -->
+    <div class="ppt-slide active p-10 md:p-14" data-notes="Good morning supervisors and examiners. I am Simon, presenting my CPT6216 Industrial Training project at MMU FCI: the MMU Shuttle Bus NFC Passenger Integration, which merges Ka Sheng's bus tracking fleet with Teoh Xuan Xuan's smart card verification system.">
+      <div class="absolute top-0 left-0 right-0 h-2 bg-blue-700"></div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 font-semibold uppercase tracking-wider">
+        <span>Multimedia University • Faculty of Computing & Informatics</span>
+        <span>CPT6216 Industrial Training Presentation</span>
+      </div>
+
+      <div class="my-auto space-y-4 max-w-3xl">
+        <div class="inline-block px-3 py-1 bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold rounded">
+          FINAL PRESENTATION • 10 – 15 MINUTES
+        </div>
+
+        <h1 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
+          MMU Shuttle Bus<br>
+          <span class="text-blue-700">NFC Passenger Integration</span>
+        </h1>
+        
+        <p class="text-base text-slate-600 font-normal">
+          Merging <strong class="text-slate-900">Ka Sheng's Shuttle Bus Fleet</strong> & <strong class="text-slate-900">Teoh Xuan Xuan's NFC/RFID System</strong>
+        </p>
+
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded text-xs text-slate-700 flex justify-between">
+          <span><strong>Trainee:</strong> Simon</span>
+          <span><strong>Course:</strong> CPT6216 Industrial Training</span>
+          <span><strong>Faculty:</strong> FCI Cyberjaya</span>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-200 flex justify-between text-xs text-slate-500">
+        <span>MMU FCI Industrial Training</span>
+        <span>Slide 1 of 11</span>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 2: Company Background                -->
+    <!-- ========================================== -->
+    <div class="ppt-slide p-10 md:p-14" data-notes="Beginning with Section 1: Company Background. Multimedia University, established under UTSB, is a pioneer in digital technology in Malaysia. I was attached to the Faculty of Computing and Informatics software development group, which incubates smart campus transit solutions.">
+      <div class="border-b-2 border-blue-700 pb-3 flex justify-between items-end">
+        <div>
+          <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">Guideline Section 1</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Company Background</h2>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Slide 2 of 11</span>
+      </div>
+
+      <div class="space-y-4 my-auto text-xs">
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-1.5">
+          <h3 class="font-bold text-slate-900 text-sm">Multimedia University (MMU)</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Established under <strong>Universiti Telekom Sdn. Bhd. (UTSB)</strong>, MMU is a leading Malaysian digital technology university with over 12,000 students across Cyberjaya and Melaka campuses.
+          </p>
+        </div>
+
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-1.5">
+          <h3 class="font-bold text-slate-900 text-sm">Host Faculty: FCI Software Engineering Cluster</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Attached to the <strong>Faculty of Computing and Informatics (FCI)</strong> development team responsible for smart campus digital initiatives and maintaining the MMU Shuttle Bus platform (`Version 2`).
+          </p>
+        </div>
+
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-1.5">
+          <h3 class="font-bold text-slate-900 text-sm">Smart Campus Transit Roadmap</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Spearheading software initiatives to modernize campus mobility, automate transit logging, and enhance the commuting experience for MMU students and staff.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-200 flex justify-between text-xs text-slate-500">
+        <span>Company Background</span>
+        <span>Slide 2 of 11</span>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 3: Objectives of the Internship      -->
+    <!-- ========================================== -->
+    <div class="ppt-slide p-10 md:p-14" data-notes="Section 2: Objectives of the Internship. Our primary objective was bridging Ka Sheng's bus tracking fleet with Teoh Xuan Xuan's smart card verification system to automate boarding logging and live bus occupancy.">
+      <div class="border-b-2 border-blue-700 pb-3 flex justify-between items-end">
+        <div>
+          <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">Guideline Section 2</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Objectives of the Internship</h2>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Slide 3 of 11</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-auto text-xs">
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-1.5">
+          <span class="font-bold text-blue-700 text-xs">OBJECTIVE 1</span>
+          <h3 class="font-bold text-slate-900 text-sm">Bridge Two Standalone MMU Systems</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Integrate <strong>Ka Sheng's MMU Shuttle Bus tracking fleet</strong> with <strong>Teoh Xuan Xuan's NFC/RFID smart card verification logic</strong> into a unified transit platform.
+          </p>
+        </div>
+
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-1.5">
+          <span class="font-bold text-blue-700 text-xs">OBJECTIVE 2</span>
+          <h3 class="font-bold text-slate-900 text-sm">Automate Passenger Boarding Telemetry</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Eliminate manual headcounts by automatically capturing student card taps and recording boarding stops via GPS geofencing.
+          </p>
+        </div>
+
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-1.5">
+          <span class="font-bold text-blue-700 text-xs">OBJECTIVE 3</span>
+          <h3 class="font-bold text-slate-900 text-sm">Live Passenger Occupancy Sync</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Compute real-time bus passenger loads and broadcast updates across STOMP WebSockets to both the student web app and driver mobile app.
+          </p>
+        </div>
+
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-1.5">
+          <span class="font-bold text-blue-700 text-xs">OBJECTIVE 4</span>
+          <h3 class="font-bold text-slate-900 text-sm">Enterprise Software Engineering Practice</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Gain practical industry mastery in multi-container Docker Compose, Spring Boot 3, PostgreSQL schema normalization, and Flutter state management.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-200 flex justify-between text-xs text-slate-500">
+        <span>Objectives of the Internship</span>
+        <span>Slide 3 of 11</span>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 4: Training Projects/Tasks           -->
+    <!-- ========================================== -->
+    <div class="ppt-slide p-10 md:p-14" data-notes="In Section 3, the project was broken down into 5 simple phases: first, studying the student cards and writing the project specs; second, setting up the database tables; third, building the backend adapter with a duplicate-tap blocker; fourth, creating a software simulator so we could test without waiting for hardware; and fifth, updating the student and driver apps.">
+      <div class="border-b-2 border-blue-700 pb-3 flex justify-between items-end">
+        <div>
+          <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">Guideline Section 3</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Training Projects, Tasks & Assignments</h2>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Slide 4 of 11</span>
+      </div>
+
+      <div class="space-y-3.5 my-auto text-xs md:text-sm">
+        <div class="p-3.5 border-l-4 border-blue-600 bg-slate-50 rounded-r-lg flex items-center justify-between">
+          <div>
+            <div class="font-bold text-slate-900">1. Smart Card Logic & Specifications</div>
+            <div class="text-slate-600 text-xs pt-0.5">Studied Teoh Xuan Xuan's smart card reading logic and drafted project requirements.</div>
+          </div>
+          <span class="text-xs font-semibold text-blue-700 bg-blue-100 px-2.5 py-1 rounded">Phase 1</span>
+        </div>
+
+        <div class="p-3.5 border-l-4 border-blue-600 bg-slate-50 rounded-r-lg flex items-center justify-between">
+          <div>
+            <div class="font-bold text-slate-900">2. Database Setup & Migration</div>
+            <div class="text-slate-600 text-xs pt-0.5">Created tables in PostgreSQL to store student cards, student profiles, and boarding history.</div>
+          </div>
+          <span class="text-xs font-semibold text-blue-700 bg-blue-100 px-2.5 py-1 rounded">Phase 2</span>
+        </div>
+
+        <div class="p-3.5 border-l-4 border-blue-600 bg-slate-50 rounded-r-lg flex items-center justify-between">
+          <div>
+            <div class="font-bold text-slate-900">3. Backend Ingestion Adapter</div>
+            <div class="text-slate-600 text-xs pt-0.5">Built the Spring Boot API with a 5-second cooldown to block accidental duplicate taps.</div>
+          </div>
+          <span class="text-xs font-semibold text-blue-700 bg-blue-100 px-2.5 py-1 rounded">Phase 3</span>
+        </div>
+
+        <div class="p-3.5 border-l-4 border-amber-600 bg-slate-50 rounded-r-lg flex items-center justify-between">
+          <div>
+            <div class="font-bold text-slate-900">4. Hardware Tap Simulator</div>
+            <div class="text-slate-600 text-xs pt-0.5">Created a software tool to simulate on-bus card taps so testing was not blocked by hardware delays.</div>
+          </div>
+          <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2.5 py-1 rounded">Phase 4</span>
+        </div>
+
+        <div class="p-3.5 border-l-4 border-emerald-600 bg-slate-50 rounded-r-lg flex items-center justify-between">
+          <div>
+            <div class="font-bold text-slate-900">5. Client Applications Update</div>
+            <div class="text-slate-600 text-xs pt-0.5">Added crowd level indicators to the Student Web app and a passenger counter HUD to the Driver app.</div>
+          </div>
+          <span class="text-xs font-semibold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded">Phase 5</span>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-200 flex justify-between text-xs text-slate-500">
+        <span>Training Projects / Tasks / Assignments</span>
+        <span>Slide 4 of 11</span>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 5: Description / Methods             -->
+    <!-- ========================================== -->
+    <div class="ppt-slide p-10 md:p-14" data-notes="Section 4: Description of Methods. We adopted the Adapter Pattern strategy. The four key reasons: no hardware lock-in, 5-second sliding debounce to prevent duplicate taps, zero driver distraction via Haversine GPS matching, and non-breaking fleet stability.">
+      <div class="border-b-2 border-blue-700 pb-3 flex justify-between items-end">
+        <div>
+          <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">Guideline Section 4</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Description / Methods: The Adapter Strategy</h2>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Slide 5 of 11</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-auto text-xs">
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-1">
+          <span class="font-bold text-blue-700 text-xs">1. Decoupled Architecture (No Lock-In)</span>
+          <p class="text-slate-600 leading-relaxed">
+            The backend accepts standard JSON (<code class="bg-white px-1 border rounded">cardUid</code> + <code class="bg-white px-1 border rounded">GPS</code>). USB readers, Raspberry Pis, or phone NFC can be swapped anytime without changing backend code.
+          </p>
+        </div>
+
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-1">
+          <span class="font-bold text-blue-700 text-xs">2. 5-Second Sliding Debounce Filter</span>
+          <p class="text-slate-600 leading-relaxed">
+            Students linger at readers or double-tap in confusion. An in-memory concurrent cooldown window eliminates accidental duplicate boarding counts.
+          </p>
+        </div>
+
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-1">
+          <span class="font-bold text-blue-700 text-xs">3. Zero Driver Distraction (Auto-Geofencing)</span>
+          <p class="text-slate-600 leading-relaxed">
+            Drivers cannot safely log stations while driving. Haversine distance automatically maps the bus GPS coordinates to the nearest campus station.
+          </p>
+        </div>
+
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-1">
+          <span class="font-bold text-blue-700 text-xs">4. Preserves Baseline Fleet Stability</span>
+          <p class="text-slate-600 leading-relaxed">
+            Integrates smart card verification on top of Ka Sheng's platform without altering or destabilizing existing GPS routes, ETAs, or tracking.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-200 flex justify-between text-xs text-slate-500">
+        <span>Description / Methods</span>
+        <span>Slide 5 of 11</span>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 6: Achievement of Tasks              -->
+    <!-- ========================================== -->
+    <div class="ppt-slide p-10 md:p-14" data-notes="Section 5: Achievement of the Tasks / Implementation. In PostgreSQL, we added student_cards and shuttle_boarding_logs. In testing, our Node.js edge simulator verified 5 operational test cases with a 100% pass rate. On client apps, students see color-coded crowding badges, and drivers have a live HUD passenger counter.">
+      <div class="border-b-2 border-blue-700 pb-3 flex justify-between items-end">
+        <div>
+          <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">Guideline Section 5</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Achievement of the Tasks / Implementation</h2>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Slide 6 of 11</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto text-xs">
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-2">
+          <h3 class="font-bold text-slate-900 text-sm">1. Backend & Database</h3>
+          <ul class="text-slate-600 space-y-1">
+            <li>• <code class="font-mono bg-white px-1 border rounded">student_cards</code>: Card UID to profile.</li>
+            <li>• <code class="font-mono bg-white px-1 border rounded">shuttle_boarding_logs</code>: Audit table.</li>
+            <li>• Sub-50ms STOMP WebSocket push.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-2">
+          <h3 class="font-bold text-slate-900 text-sm">2. Testing Simulator</h3>
+          <ul class="text-slate-600 space-y-1">
+            <li>• <strong>Scenario 1:</strong> Valid Tap (200 OK)</li>
+            <li>• <strong>Scenario 2:</strong> Double Tap (429 Debounced)</li>
+            <li>• <strong>Scenario 3:</strong> 2nd Student (200 OK)</li>
+            <li>• <strong>Scenario 4:</strong> Guest Card (404 Handled)</li>
+            <li>• <strong>Result:</strong> 100% pass rate (32.4ms latency).</li>
+          </ul>
+        </div>
+
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-2">
+          <h3 class="font-bold text-slate-900 text-sm">3. Client Applications</h3>
+          <ul class="text-slate-600 space-y-1">
+            <li>• <strong>Student Web:</strong> 🟢 Available (&lt;50%), 🟡 Moderate (50-85%), 🔴 Crowded (&gt;85%).</li>
+            <li>• <strong>Driver Mobile:</strong> Sticky HUD showing live load (12/40) & trip reset button.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-200 flex justify-between text-xs text-slate-500">
+        <span>Achievement of the Tasks / Implementation</span>
+        <span>Slide 6 of 11</span>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 7: Problems & Ways to Improve        -->
+    <!-- ========================================== -->
+    <div class="ppt-slide p-10 md:p-14" data-notes="Section 6: Problems Encountered and Ways to Improve. The primary constraint was the absence of the physical reader machine, which we mitigated by building the mock simulator. Other constraints like one-way tapping and cellular dead zones were solved through driver reset actions and stateless buffered endpoints.">
+      <div class="border-b-2 border-blue-700 pb-3 flex justify-between items-end">
+        <div>
+          <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">Guideline Section 6</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Problems Encountered & Ways to Improve</h2>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Slide 7 of 11</span>
+      </div>
+
+      <div class="space-y-3.5 my-auto text-xs">
+        <div class="p-4 border-l-4 border-amber-600 bg-amber-50/50 rounded-r-lg space-y-1">
+          <div class="flex items-center justify-between font-bold text-slate-900 text-sm">
+            <span>1. Absence of Physical Machine (Primary Constraint)</span>
+            <span class="text-xs text-amber-800 font-semibold bg-amber-100 px-2 py-0.5 rounded">Hardware Delay</span>
+          </div>
+          <p class="text-slate-600">Physical ACR122U readers are pending university procurement and bus installation.</p>
+          <p class="text-blue-900 font-medium"><strong>✓ Improvement:</strong> Built an automated Node.js edge simulator and prepared mobile NFC fallback to test the entire software pipeline.</p>
+        </div>
+
+        <div class="p-4 border-l-4 border-slate-400 bg-slate-50 rounded-r-lg space-y-1">
+          <div class="flex items-center justify-between font-bold text-slate-900 text-sm">
+            <span>2. One-Way Tap In (No Exit Gate)</span>
+            <span class="text-xs text-slate-600 font-semibold bg-slate-200 px-2 py-0.5 rounded">Operational</span>
+          </div>
+          <p class="text-slate-600">Students tap when boarding, but do not tap out when exiting.</p>
+          <p class="text-blue-900 font-medium"><strong>✓ Improvement:</strong> Added a one-touch HUD trip reset for drivers; recommended dual-beam infrared sensors for future upgrades.</p>
+        </div>
+
+        <div class="p-4 border-l-4 border-slate-400 bg-slate-50 rounded-r-lg space-y-1">
+          <div class="flex items-center justify-between font-bold text-slate-900 text-sm">
+            <span>3. Campus Cellular Dead Zones</span>
+            <span class="text-xs text-slate-600 font-semibold bg-slate-200 px-2 py-0.5 rounded">Network</span>
+          </div>
+          <p class="text-slate-600">Buses may experience momentary signal loss in basements or dense tree coverage.</p>
+          <p class="text-blue-900 font-medium"><strong>✓ Improvement:</strong> Stateless endpoints allow edge readers to buffer scans locally and flush upon signal restoration.</p>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-200 flex justify-between text-xs text-slate-500">
+        <span>Problems Encountered and Ways to Improve</span>
+        <span>Slide 7 of 11</span>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 8: Training Analysis                 -->
+    <!-- ========================================== -->
+    <div class="ppt-slide p-10 md:p-14" data-notes="Section 7: Training Analysis. On technical skills, I developed expertise in Spring Boot 3, WebSockets, and Flutter. My core strength is proactive problem-solving by building simulators. My growth area is gaining more hands-on experience with embedded Linux IoT operating systems.">
+      <div class="border-b-2 border-blue-700 pb-3 flex justify-between items-end">
+        <div>
+          <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">Guideline Section 7</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Training Analysis: Skills & Growth</h2>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Slide 8 of 11</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto text-xs">
+        <div class="border border-slate-200 bg-slate-50 rounded-lg p-5 space-y-2">
+          <h3 class="font-bold text-blue-700 text-sm">i) Skills Developed & Knowledge Gained</h3>
+          <ul class="text-slate-700 space-y-1.5">
+            <li>• <strong>Enterprise Backend:</strong> Spring Boot 3, Hibernate JPA, RESTful API design.</li>
+            <li>• <strong>Real-Time Systems:</strong> STOMP over WebSockets for live telemetry.</li>
+            <li>• <strong>Mobile UI/State:</strong> Flutter `Provider` pattern & reactive HUD components.</li>
+            <li>• <strong>DevOps & Orchestration:</strong> Docker Compose multi-container networking.</li>
+          </ul>
+        </div>
+
+        <div class="border border-slate-200 bg-slate-50 rounded-lg p-5 space-y-2">
+          <h3 class="font-bold text-indigo-700 text-sm">ii) Suitability, Strengths & Growth Areas</h3>
+          <div class="space-y-2 text-slate-700">
+            <div>
+              <strong class="text-slate-900 block">Core Strengths:</strong>
+              <span>Proactive problem-solving—building the edge simulator when hardware was delayed; decoupled software architecture avoiding brittle dependencies.</span>
+            </div>
+            <div class="pt-1">
+              <strong class="text-slate-900 block">Areas for Improvement:</strong>
+              <span>Deepening familiarity with embedded Linux IoT environments (systemd daemons on Raspberry Pi OS) for permanent on-bus deployment.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-200 flex justify-between text-xs text-slate-500">
+        <span>Training Analysis</span>
+        <span>Slide 8 of 11</span>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 9: Application of Subject Knowledge  -->
+    <!-- ========================================== -->
+    <div class="ppt-slide p-10 md:p-14" data-notes="Section 8: Application of Subject Knowledge Gained in University to the Industrial Environment. We applied Object-Oriented Design Patterns in the Adapter architecture, Database Systems in 3NF PostgreSQL normalization and B-tree indexing, and Computer Networks in REST status codes and WebSockets.">
+      <div class="border-b-2 border-blue-700 pb-3 flex justify-between items-end">
+        <div>
+          <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">Guideline Section 8</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Application of University Subject Knowledge</h2>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Slide 9 of 11</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto text-xs">
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-2">
+          <div class="text-xs font-bold text-blue-700">OOP & DESIGN PATTERNS</div>
+          <h3 class="font-bold text-slate-900 text-sm">Object-Oriented Design</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Applied the <strong>Adapter Pattern</strong> and <strong>Singleton Pattern</strong> in Spring Boot to isolate external reader inputs from core domain logic.
+          </p>
+        </div>
+
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-2">
+          <div class="text-xs font-bold text-blue-700">DATABASE SYSTEMS</div>
+          <h3 class="font-bold text-slate-900 text-sm">Relational Schemas</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Applied 3NF relational normalization, foreign key cascading, and B-Tree indexing in PostgreSQL for sub-10ms queries.
+          </p>
+        </div>
+
+        <div class="p-4 border border-slate-200 bg-slate-50 rounded-lg space-y-2">
+          <div class="text-xs font-bold text-blue-700">COMPUTER NETWORKS</div>
+          <h3 class="font-bold text-slate-900 text-sm">Distributed Protocols</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Leveraged HTTP status codes (200, 400, 404, 429), CORS management, and full-duplex STOMP WebSockets for push notifications.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-200 flex justify-between text-xs text-slate-500">
+        <span>Application of Subject Knowledge to Industrial Environment</span>
+        <span>Slide 9 of 11</span>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 10: Recommendation to Others         -->
+    <!-- ========================================== -->
+    <div class="ppt-slide p-10 md:p-14" data-notes="Section 9: Recommendation to Others. For future interns: first, build a software simulator early so hardware delays don't stop your coding; second, always add a cooldown timer to block double-taps. For MMU management: first, install fixed card scanners with 4G on the buses; second, add exit door sensors so the system automatically knows when students get off.">
+      <div class="border-b-2 border-blue-700 pb-3 flex justify-between items-end">
+        <div>
+          <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">Guideline Section 9</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Recommendation to Others</h2>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Slide 10 of 11</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto text-xs md:text-sm">
+        <!-- Future Interns Card -->
+        <div class="p-6 border border-blue-200 bg-blue-50/50 rounded-xl space-y-4">
+          <div class="flex items-center space-x-2 border-b border-blue-200 pb-2">
+            <span class="font-bold text-blue-800 text-sm">💡 Tips for Future Interns</span>
+          </div>
+          
+          <div class="space-y-1">
+            <strong class="text-slate-900 block text-xs md:text-sm">1. Build a Simulator First</strong>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Hardware parts often take weeks to arrive. Building a simple software simulator on day one lets you build and test your backend code immediately without waiting.
+            </p>
+          </div>
+
+          <div class="space-y-1">
+            <strong class="text-slate-900 block text-xs md:text-sm">2. Always Protect Against Double-Taps</strong>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              In real life, students tap twice or hold cards too long. Always add a simple cooldown timer (like 5 seconds) so nobody gets counted twice.
+            </p>
+          </div>
+        </div>
+
+        <!-- MMU Management Card -->
+        <div class="p-6 border border-slate-300 bg-slate-50 rounded-xl space-y-4">
+          <div class="flex items-center space-x-2 border-b border-slate-200 pb-2">
+            <span class="font-bold text-slate-900 text-sm">🏛️ Advice for MMU Management</span>
+          </div>
+          
+          <div class="space-y-1">
+            <strong class="text-slate-900 block text-xs md:text-sm">1. Install Fixed 4G Card Scanners</strong>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Mount small, permanent Raspberry Pi card readers with 4G SIM cards inside each bus so the driver doesn't need to manually configure anything.
+            </p>
+          </div>
+
+          <div class="space-y-1">
+            <strong class="text-slate-900 block text-xs md:text-sm">2. Add Exit Door Counters</strong>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Install simple sensors at the back exit door to automatically count students stepping off the bus, keeping the seat count 100% accurate.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-200 flex justify-between text-xs text-slate-500">
+        <span>Recommendation to Others</span>
+        <span>Slide 10 of 11</span>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 11: Conclusion                       -->
+    <!-- ========================================== -->
+    <div class="ppt-slide p-10 md:p-14 text-center" data-notes="Section 10: Conclusion. The software foundation, database, debounce filter, and simulation pipeline are fully verified. My immediate next step is to acquire the physical hardware device and continue development on the real bus fleet. Thank you, and I am happy to take any questions or demonstrate the simulator.">
+      <div class="absolute top-0 left-0 right-0 h-2 bg-blue-700"></div>
+
+      <div class="my-auto space-y-5 max-w-2xl mx-auto">
+        <div class="w-14 h-14 mx-auto rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-700 font-bold text-2xl">
+          ✓
+        </div>
+        
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900">
+          Conclusion & Immediate Next Step
+        </h2>
+
+        <p class="text-sm md:text-base text-slate-600 leading-relaxed">
+          The software foundation, database migrations, debounce filter, and cross-platform UI components are established and fully validated in simulation.
+        </p>
+
+        <div class="p-4 border-2 border-blue-600 bg-blue-50/80 rounded-lg text-left text-xs space-y-1">
+          <div class="font-bold text-blue-900 uppercase">🚀 Immediate Next Step:</div>
+          <p class="text-slate-700 leading-relaxed">
+            Acquire the physical NFC reader device (ACR122U USB reader / IoT edge unit) and continue working on connecting the physical hardware with the campus shuttle bus fleet.
+          </p>
+        </div>
+
+        <div class="pt-2 text-xs font-semibold text-blue-700 tracking-wider uppercase">
+          Thank You • Questions & Live Simulation Demonstration
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+        <span>Conclusion</span>
+        <span>Slide 11 of 11</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PowerPoint Navigator / Presenter Bar -->
+  <div class="w-full max-w-[1350px] flex items-center justify-between text-xs text-neutral-300 py-2 px-4 bg-neutral-900 rounded-b-lg border-t border-neutral-700 mt-1">
+    <div class="flex items-center space-x-2 text-neutral-400">
+      <span>Keys:</span>
+      <kbd class="px-1.5 py-0.5 bg-neutral-800 border border-neutral-700 rounded text-neutral-300">←</kbd>
+      <kbd class="px-1.5 py-0.5 bg-neutral-800 border border-neutral-700 rounded text-neutral-300">→</kbd>
+      <kbd class="px-1.5 py-0.5 bg-neutral-800 border border-neutral-700 rounded text-neutral-300">Space</kbd>
+    </div>
+
+    <div class="flex items-center space-x-3">
+      <span id="slideIndicator" class="font-semibold text-white">Slide 1 of 11</span>
+      <div class="flex items-center space-x-1.5">
+        <button id="prevBtn" class="px-3 py-1 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded border border-neutral-700 disabled:opacity-30 disabled:cursor-not-allowed">
+          Previous
+        </button>
+        <button id="nextBtn" class="px-3.5 py-1 bg-blue-600 hover:bg-blue-500 text-white rounded font-medium disabled:opacity-30 disabled:cursor-not-allowed">
+          Next Slide
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Presenter Notes Drawer -->
+  <div id="notesDrawer" class="hidden fixed bottom-14 left-8 right-8 md:left-1/4 md:right-1/4 bg-neutral-900/95 text-neutral-200 border border-neutral-700 rounded-xl p-5 shadow-2xl z-40 backdrop-blur">
+    <div class="flex items-center justify-between border-b border-neutral-800 pb-2 mb-2">
+      <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">🎙️ Presenter Script (Exact Guideline Matching)</span>
+      <button id="closeNotesBtn" class="text-xs text-neutral-400 hover:text-white font-bold">✕ Close</button>
+    </div>
+    <p id="notesContent" class="text-xs md:text-sm text-neutral-300 leading-relaxed font-normal">
+      <!-- Injected dynamically -->
+    </p>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.ppt-slide');
+    const totalSlides = slides.length;
+    let currentSlide = 0;
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const slideIndicator = document.getElementById('slideIndicator');
+    const notesDrawer = document.getElementById('notesDrawer');
+    const notesContent = document.getElementById('notesContent');
+    const notesToggleBtn = document.getElementById('notesToggleBtn');
+    const closeNotesBtn = document.getElementById('closeNotesBtn');
+
+    function updateSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = Math.max(0, Math.min(index, totalSlides - 1));
+      slides[currentSlide].classList.add('active');
+
+      slideIndicator.textContent = `Slide ${currentSlide + 1} of ${totalSlides}`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === totalSlides - 1;
+
+      const currentNotes = slides[currentSlide].getAttribute('data-notes') || 'No notes for this slide.';
+      notesContent.textContent = currentNotes;
+    }
+
+    prevBtn.addEventListener('click', () => updateSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => updateSlide(currentSlide + 1));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        updateSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        updateSlide(currentSlide - 1);
+      } else if (e.key.toLowerCase() === 'n') {
+        notesDrawer.classList.toggle('hidden');
+      }
+    });
+
+    notesToggleBtn.addEventListener('click', () => notesDrawer.classList.toggle('hidden'));
+    closeNotesBtn.addEventListener('click', () => notesDrawer.classList.add('hidden'));
+
+    // Timer functionality (10-15 min range)
+    let timerInterval = null;
+    let secondsElapsed = 0;
+    const timerDisplay = document.getElementById('timerDisplay');
+    const toggleTimerBtn = document.getElementById('toggleTimerBtn');
+    const resetTimerBtn = document.getElementById('resetTimerBtn');
+
+    function formatTime(secs) {
+      const mins = Math.floor(secs / 60);
+      const remainingSecs = secs % 60;
+      return `${mins.toString().padStart(2, '0')}:${remainingSecs.toString().padStart(2, '0')}`;
+    }
+
+    toggleTimerBtn.addEventListener('click', () => {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        toggleTimerBtn.textContent = 'Resume';
+      } else {
+        timerInterval = setInterval(() => {
+          secondsElapsed++;
+          timerDisplay.textContent = formatTime(secondsElapsed);
+          if (secondsElapsed > 900) { // 15 mins
+            timerDisplay.classList.add('text-red-400');
+          } else if (secondsElapsed > 600) { // 10 mins
+            timerDisplay.classList.add('text-amber-400');
+          }
+        }, 1000);
+        toggleTimerBtn.textContent = 'Pause';
+      }
+    });
+
+    resetTimerBtn.addEventListener('click', () => {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      secondsElapsed = 0;
+      timerDisplay.textContent = '00:00';
+      timerDisplay.classList.remove('text-red-400', 'text-amber-400');
+      toggleTimerBtn.textContent = 'Start';
+    });
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    }
+
+    updateSlide(0);
+  </script>
+</body>
+</html>

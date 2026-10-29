@@ -8,6 +8,7 @@ import 'package:mmu_shuttle_driver/features/announcement/widgets/create_announce
 import 'package:mmu_shuttle_driver/features/routes/models/route_model.dart';
 import 'package:mmu_shuttle_driver/features/routes/providers/route_provider.dart';
 import 'package:mmu_shuttle_driver/features/routes/widgets/back_button.dart';
+import 'package:mmu_shuttle_driver/features/routes/widgets/passenger_counter_hud.dart';
 import 'package:mmu_shuttle_driver/features/routes/widgets/select_vehicle_dialog.dart';
 import 'package:mmu_shuttle_driver/features/routes/widgets/start_route_card.dart';
 import 'package:provider/provider.dart';
@@ -167,6 +168,17 @@ class _StartRouteScreenState extends State<StartRouteScreen> {
         body: Stack(
           children: [
             GoogleMapWidget(),
+            if (_isOngoing)
+              Positioned(
+                top: 10,
+                left: 0,
+                right: 0,
+                child: SafeArea(
+                  child: PassengerCounterHud(
+                    vehicleId: routeProvider.currentVehicleId ?? 1,
+                  ),
+                ),
+              ),
             StartRouteCard(
               title: routeName,
               totalStation: totalStation,

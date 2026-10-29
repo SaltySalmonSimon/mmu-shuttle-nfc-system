@@ -31,6 +31,7 @@ class RouteProvider extends ChangeNotifier {
 
   bool _isLoading = true;
   String? _errorMesssage;
+  int? _currentVehicleId;
 
   // getters
   List<RouteModel> get routes => _routes;
@@ -40,6 +41,7 @@ class RouteProvider extends ChangeNotifier {
   LatLng get initialCameraPosition => _initialCameraPosition;
   bool get isLoading => _isLoading;
   String? get errorMesssage => _errorMesssage;
+  int? get currentVehicleId => _currentVehicleId;
 
   // methods
   void selectRoute(RouteModel route) {
@@ -100,6 +102,7 @@ class RouteProvider extends ChangeNotifier {
     required int vehicleId,
     bool isResumed = false,
   }) async {
+    _currentVehicleId = vehicleId;
     Position currentLocation;
     currentLocation = await _locationService.getCurrentLocation();
     await _notificationService.requestNotificationPermission();
@@ -168,6 +171,7 @@ class RouteProvider extends ChangeNotifier {
   Future<void> stopTracking({bool isStoppedByUser = true}) async {
     _locationService.disconnect();
     _currentBusPosition = null;
+    _currentVehicleId = null;
     if (isStoppedByUser) {
       if (selectedRoute == null) {
         throw Exception("No route selected");
@@ -246,6 +250,7 @@ class RouteProvider extends ChangeNotifier {
     _stationPoints = {};
     _routeLine = {};
     _currentBusPosition = null;
+    _currentVehicleId = null;
     _selectedRoute = null;
     _isLoading = true;
     _errorMesssage = null;

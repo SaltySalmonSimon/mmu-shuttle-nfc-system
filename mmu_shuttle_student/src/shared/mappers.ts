@@ -15,7 +15,7 @@ export const mapRouteResponseToRouteModel = (apiData: any): Route => {
             id: station?.id,
             name: station?.name,
             sequence: station?.sequence,
-            schedule: station?.schedules,
+            schedule: station?.schedules || [],
             location: {
                 lat: station?.locationModel?.latitude,
                 lng: station?.locationModel?.longitude
@@ -50,6 +50,8 @@ export const mapActiveBusResponseToActiveBusModel = (apiData: any): ActiveBus =>
         isAtStation: Boolean(apiData?.isAtStation ?? apiData?.atStation),
         lastVisitedRouteStationId: apiData?.lastVisitedRouteStationId ?? undefined,
         etas,
-        lastEtaCalculationTime: Number(apiData?.lastEtaCalculationTime ?? 0)
+        lastEtaCalculationTime: Number(apiData?.lastEtaCalculationTime ?? 0),
+        currentOccupancy: Number(apiData?.currentOccupancy ?? 0),
+        maxCapacity: Number(apiData?.maxCapacity ?? 40)
     };
-}
+};

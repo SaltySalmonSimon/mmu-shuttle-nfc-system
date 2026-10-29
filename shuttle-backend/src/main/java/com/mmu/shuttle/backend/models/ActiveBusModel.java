@@ -25,4 +25,6 @@ public class ActiveBusModel {
     private Long lastVisitedRouteStationId;
     private Map<Long, Integer> etas = new ConcurrentHashMap<>();
     private long lastEtaCalculationTime = 0L;
+    private int currentOccupancy = 0;
+    private int maxCapacity = 40;
 }

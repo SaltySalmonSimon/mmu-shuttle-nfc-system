@@ -12,4 +12,6 @@ export interface ActiveBus {
     lastVisitedRouteStationId?: number;
     etas: Record<number, number>;
     lastEtaCalculationTime: number;
+    currentOccupancy?: number;
+    maxCapacity?: number;
 }

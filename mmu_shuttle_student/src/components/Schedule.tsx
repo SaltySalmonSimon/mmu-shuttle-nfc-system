@@ -2,15 +2,21 @@ import { useState } from "react";
 import type { ScheduleProps } from "../interfaces/props/ScheduleProps";
 import { SCHEDULE_VIEW_LIMIT } from "../shared/constants";
 
-const Schedule = ({ schedule }: ScheduleProps) => {
+const Schedule = ({ schedule = [] }: ScheduleProps) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const limit = SCHEDULE_VIEW_LIMIT;
-    const hasMore = schedule.length > limit;
-    const visibleSchedule = isExpanded ? schedule : schedule.slice(0, limit);
+    const safeSchedule = Array.isArray(schedule) ? schedule : [];
+    if (safeSchedule.length === 0) {
+        return (
+            <div className="w-full mt-2 text-left">
+                <span className="text-[13px] text-slate-400 italic">No schedule posted for this stop.</span>
+            </div>
+        );
+    }
 
-    if (schedule.length == 0)
-        return <></>;
+    const limit = SCHEDULE_VIEW_LIMIT;
+    const hasMore = safeSchedule.length > limit;
+    const visibleSchedule = isExpanded ? safeSchedule : safeSchedule.slice(0, limit);
 
     return (
         <div className="w-full mt-2 text-left">
@@ -47,6 +53,6 @@ const Schedule = ({ schedule }: ScheduleProps) => {
             )}
         </div>
     );
-}
+};
 
 export default Schedule;
